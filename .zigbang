@@ -1,0 +1,113 @@
+# encoding=utf-8
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import time
+import xlwt
+
+url = "https://www.zigbang.com/search/map"
+url2 = "https://www.zigbang.com/search/map?lat=37.4781532287598&lng=126.951484680176&zoom=6"
+
+
+# loading dynamic html with full information loaded
+def page_loading(url):
+    locationX = []
+    locationY = []
+    address = []
+    rent = []
+    deposit = []
+    global num
+    global start
+    global end
+
+    driver = webdriver.Chrome(executable_path='C:\\Python27\\chromedriver_win32\\chromedriver.exe')
+    driver.get(url)
+    start = time.time()
+    print("loading main page")
+    time.sleep(3)
+
+    """driver.execute_script('\
+                        var scroll_amount = 600;\
+                        var interval;\
+                        function scroller(){\
+                            var old = document.getElementById("map-content").scrollTop;\
+                            document.getElementById("map-content").scrollTop += scroll_amount;\
+                            if (document.getElementById("map-content").scrollTop == old){\
+                              clearInterval(interval);\
+                            }\
+                        }\
+                        function scrollToBottom(){\
+                            interval = setInterval(scroller, 300);\
+                        }\
+                        scrollToBottom();')"""
+
+    for i in range (1 , 5000):
+        try:
+            driver.execute_script(
+                'var objDiv = document.getElementById("map-content");objDiv.scrollTop = objDiv.scrollHeight;')
+            time.sleep(1)
+        except:
+            break
+        if i%50 == 0: print("data loading for "+ str(i)+ " times")
+
+    house_info = driver.find_elements_by_class_name("list-item")
+
+    num = len(house_info)
+    print(str(num) + "houses have been found")
+    end = time.time()
+    print((end - start) + "seconds cost")
+
+    for item in house_info:
+        temp1 = item.get_attribute("data-location")
+        if temp1 is None:
+            rent.append(0)
+            deposit.append(0)
+        else:
+            temp = temp1.split(',')
+            locationX.append(temp[0])
+            locationY.append(temp[1])
+        address.append(item.find_element_by_class_name("i-info").text)
+        temp2 = item.find_element_by_xpath(".//strong")
+        if temp2 is None:
+            rent.append(0)
+            deposit.append(0)
+        else:
+            temp = temp2.text.split('/')
+            rent.append(temp[0])
+            deposit.append(temp[1])
+
+    data = [locationX, locationY, address, rent, deposit]
+#    print (data)
+    driver.close()
+
+    return data
+
+
+def extract_contents(data):
+    try:
+        book = xlwt.Workbook()
+        houses_book = book.add_sheet('My Worksheet',cell_overwrite_ok=True)
+    except Exception as e:
+        print(e)
+        return
+    houses_book.write(0,0,"HouseID")
+    houses_book.write(0,1,"Latitude")
+    houses_book.write(0,2,"Longitude")
+    houses_book.write(0,3,"Address")
+    houses_book.write(0,4,"Deposit")
+    houses_book.write(0,5,"MonthlyRent")
+
+    for i in range(0,num-1):
+        houses_book.write(i + 1, 0, i)
+        houses_book.write(i + 1, 1, data[0][i])
+        houses_book.write(i + 1, 2, data[1][i])
+        houses_book.write(i + 1, 3, data[2][i])
+        houses_book.write(i + 1, 4, data[3][i])
+        houses_book.write(i + 1, 5, data[4][i])
+
+    book.save('ALLhouse.xls')
+
+#page_loading(url)
+extract_contents(page_loading(url))
+
+# Rope project settings
+.ropeproject
