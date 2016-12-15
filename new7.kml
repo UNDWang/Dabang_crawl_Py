@@ -11,14 +11,14 @@
 
     <Style id="blueLine">
       <LineStyle>
-        <color>ffff0000</color>
+        <color>ff0000ff</color>
         <width>4</width>
       </LineStyle>
     </Style>
          
     <Style id="orangeLine">
        <LineStyle>
-              <color>ff00ccff</color>
+              <color>ff0000ff</color>
               <width>4</width>
        </LineStyle>
     </Style>
