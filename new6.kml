@@ -15,6 +15,13 @@
         <width>4</width>
       </LineStyle>
     </Style>
+         
+    <Style id="orangeLine">
+       <LineStyle>
+              <color>ff00ccff</color>
+              <width>4</width>
+       </LineStyle>
+    </Style>
     
 
     <Placemark>
@@ -61,7 +68,50 @@
         </coordinates>
       </LineString>
     </Placemark>
-
+         
+<Placemark>
+       <name>이태원로191~이태원로134간 하수관로 개량</name>
+       <styleUrl>#orangeLine</styleUrl>
+       <ExtendedData>
+              <Data name="위 치">
+              <value>이태원로191~이태원로134간</value>
+              </Data>
+              <Data name="규 모">
+              <value>D600~1,200㎜, L=583m</value>
+              </Data>
+              <Data name="기 간">
+              <value>2016. 04. ~ 2016. 12.</value>
+              </Data>
+              <Data name="총사업비">
+              <value>2,800백만원</value>
+              </Data>
+       </ExtendedData>
+       <LineString>
+       <altitudeMode>relative</altitudeMode>
+       <coordinates>        
+126.9887,37.53411,0
+126.9890,37.53413,0
+126.9894,37.53416,0
+126.9897,37.53418,0
+126.9901,37.53421,0
+126.9905,37.53423,0
+126.9908,37.53425,0
+126.9912,37.53428,0
+126.9916,37.53430,0
+126.9919,37.53432,0
+126.9923,37.53435,0
+126.9927,37.53437,0
+126.9930,37.53440,0
+126.9934,37.53442,0
+126.9937,37.53444,0
+126.9941,37.53447,0
+126.9945,37.53449,0
+126.9948,37.53451,0
+126.9952,37.53454,0
+126.9956,37.53456,0
+       </coordinates>
+       </LineString>
+</Placemark>
 
   </Document>
 </kml>
