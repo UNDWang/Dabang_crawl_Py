@@ -20,8 +20,23 @@
     <Placemark>
       <name>Blue Line</name>
       <styleUrl>#blueLine</styleUrl>
-      <LineString>
-        <altitudeMode>relative</altitudeMode>
+      <ExtendedData>
+              <Data name="店名">
+              <value>法雅客＠信義店</value>
+              </Data>
+              <Data name="電話號碼">
+              <value>02-8789-8780</value>
+              </Data>
+              <Data name="群組">
+              <value>群組三</value>
+              </Data>
+              <Data name="URL">
+              <value>http://www.studioa.com.tw/</value>
+              </Data>
+       </ExtendedData>
+       <address>台北市松壽路9號地下2樓 110</address>
+       <LineString>
+       <altitudeMode>relative</altitudeMode>
         <coordinates>
 126.9604,37.52017,0
 126.9605,37.52038,0
