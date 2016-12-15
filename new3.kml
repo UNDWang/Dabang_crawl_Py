@@ -6,8 +6,8 @@
        Just leave the comments and credits when doing so.
 -->
   <Document>
-    <name>Chicago Transit Map</name>
-    <description>Chicago Transit Authority train lines</description>
+    <name>Map</name>
+    <description>Construction lines</description>
 
     <Style id="blueLine">
       <LineStyle>
@@ -21,20 +21,19 @@
       <name>Blue Line</name>
       <styleUrl>#blueLine</styleUrl>
       <ExtendedData>
-              <Data name="店名">
-              <value>法雅客＠信義店</value>
+              <Data name="위 치">
+              <value>용산구 한강대교 북단 ~ 남영역간(한강로 일대)</value>
               </Data>
-              <Data name="電話號碼">
-              <value>02-8789-8780</value>
+              <Data name="규 모">
+              <value>D2,400㎜ ~ □2.0×2.0m, L=1.26㎞(’16년 D1,800㎜(2련) L=124.9m, D2,400㎜ L=382m)</value>
               </Data>
-              <Data name="群組">
-              <value>群組三</value>
+              <Data name="기 간">
+              <value>2013. 12. ~ 2017. 07</value>
               </Data>
-              <Data name="URL">
-              <value>http://www.studioa.com.tw/</value>
+              <Data name="총사업비">
+              <value>19,760백만원(’16년 3,000백만원)</value>
               </Data>
        </ExtendedData>
-       <address>台北市松壽路9號地下2樓 110</address>
        <LineString>
        <altitudeMode>relative</altitudeMode>
         <coordinates>
